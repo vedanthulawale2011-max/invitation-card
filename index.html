@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>श्री गणेश व सत्यनारायण महापूजा निमंत्रण | हुलावळे परिवार</title>
+  
+  <!-- Google Fonts for Marathi & Luxury English -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold-light: #fff3b0;
+      --gold: #d4af37;
+      --gold-dark: #996515;
+      --maroon: #670d10;
+      --crimson: #8b181b;
+      --parchment: #fdfbf7;
+      --card-bg: #fffdf9;
+      --text-main: #3d2b1f;
+      --success: #2d7a3e;
+      --danger: #c1272d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: #1a1615;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Mobile Container (9:16 Aspect ratio frame) */
+    .mobile-frame {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      background: var(--parchment);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    /* --- INTERACTIVE TEMPLE DOORS OVERLAY --- */
+    .doors-overlay {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      height: 100%;
+      z-index: 999;
+      display: flex;
+      pointer-events: all;
+      transition: opacity 0.5s ease 1s;
+    }
+
+    .doors-overlay.hidden {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .door {
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(circle at center, #d8a04b 0%, #8c5b16 100%);
+      border: 3px solid #ffd700;
+      position: relative;
+      display: flex;
+      align-items: center;
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.5);
+    }
+
+    .door-left {
+      border-right: 1.5px solid #ffe885;
+      transform-origin: left center;
+      justify-content: flex-end;
+    }
+
+    .door-right {
+      border-left: 1.5px solid #ffe885;
+      transform-origin: right center;
+      justify-content: flex-start;
+    }
+
+    .doors-overlay.open .door-left {
+      transform: translateX(-100%);
+    }
+
+    .doors-overlay.open .door-right {
+      transform: translateX(100%);
+    }
+
+    /* Royal Golden Seal / Tap Button */
+    .seal-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1001;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .doors-overlay.open .seal-container {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.6);
+      pointer-events: none;
+    }
+
+    .seal-button {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffe994 0%, #d4af37 60%, #754c00 100%);
+      border: 3px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 5px 15px rgba(0,0,0,0.4);
+      animation: pulse 1.8s infinite;
+    }
+
+    .seal-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4a2800;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+      50% { transform: scale(1.08); box-shadow: 0 0 35px rgba(255, 215, 0, 0.95); }
+    }
+
+    /* --- INVITATION MAIN CONTENT --- */
+    .invitation-body {
+      padding: 24px 18px 40px;
+      background: radial-gradient(circle at top, #fff9ea 0%, #fdfbf7 70%);
+      border: 10px solid #f6ecdc;
+      outline: 2px solid var(--gold);
+      outline-offset: -6px;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .border-filigree {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--gold);
+    }
+    .top-left { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .top-right { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+    .bottom-left { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+    .bottom-right { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+    .header-shloka {
+      font-family: 'Yatra One', cursive;
+      font-size: 15px;
+      color: var(--crimson);
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .sub-shloka {
+      font-size: 11.5px;
+      color: #634b35;
+      font-style: italic;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    /* Golden Ganesha Emblem */
+    .ganesha-hero {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 10px;
+      background: radial-gradient(circle, #fff1b8 0%, rgba(255,255,255,0) 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .ganesha-hero svg {
+      width: 105px;
+      height: 105px;
+      filter: drop-shadow(0 4px 10px rgba(184, 134, 11, 0.45));
+    }
+
+    .main-title {
+      font-family: 'Yatra One', cursive;
+      font-size: 26px;
+      color: var(--crimson);
+      margin-bottom: 4px;
+    }
+
+    .pujan-subtitle {
+      font-size: 14px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    /* Host Card */
+    .host-card {
+      background: #fff;
+      border: 1px solid #ebd9b8;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px 0 18px;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.12);
+    }
+
+    .host-label {
+      font-size: 12px;
+      color: #8b6e4e;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .host-name {
+      font-family: 'Yatra One', cursive;
+      font-size: 19px;
+      color: var(--maroon);
+      margin-top: 3px;
+    }
+
+    /* Schedule Section */
+    .section-heading {
+      font-family: 'Yatra One', cursive;
+      font-size: 18px;
+      color: var(--crimson);
+      margin: 18px 0 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-heading::before,
+    .section-heading::after {
+      content: "•";
+      color: var(--gold);
+      margin: 0 6px;
+    }
+
+    .date-badge {
+      background: linear-gradient(135deg, var(--crimson), var(--maroon));
+      color: #fff;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 14px;
+      box-shadow: 0 3px 8px rgba(103, 13, 16, 0.3);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      background: #fffdf8;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .time-slot {
+      font-weight: 700;
+      color: var(--crimson);
+      font-size: 12.5px;
+      min-width: 105px;
+    }
+
+    .event-slot {
+      font-size: 13px;
+      color: #3b2a21;
+      font-weight: 600;
+    }
+
+    /* Venue Card */
+    .venue-box {
+      background: linear-gradient(to bottom, #ffffff, #faf5eb);
+      border: 1px dashed var(--gold);
+      border-radius: 12px;
+      padding: 14px 12px;
+      margin: 16px 0;
+    }
+
+    .venue-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--crimson);
+      margin-bottom: 4px;
+    }
+
+    .venue-address {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #4a382c;
+      margin-bottom: 10px;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-maps {
+      background: linear-gradient(135deg, #2b7de9, #1b5bb5);
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(27, 91, 181, 0.3);
+    }
+
+    .btn-rsvp {
+      background: linear-gradient(135deg, var(--success), #1e5a2a);
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(45, 122, 62, 0.3);
+    }
+
+    .btn-contact {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Share Buttons Row */
+    .share-section {
+      margin: 16px 0;
+    }
+
+    .share-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--crimson);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: none;
+      cursor: pointer;
+    }
+
+    .share-btn:active {
+      transform: scale(0.9);
+    }
+
+    .share-btn.whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .share-btn.telegram {
+      background: #0088cc;
+      color: #fff;
+    }
+
+    .share-btn.facebook {
+      background: #4267B2;
+      color: #fff;
+    }
+
+    .share-btn.copy {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    /* Contact Info */
+    .contact-box {
+      background: #fff;
+      border: 1px solid #ebd9b8;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 14px 0;
+      text-align: left;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 13px;
+      color: #3b2a21;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .contact-item:active {
+      color: var(--crimson);
+    }
+
+    .contact-icon {
+      font-size: 18px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background-color: var(--parchment);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      max-width: 380px;
+      width: 90%;
+      animation: slideUp 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-title {
+      font-family: 'Yatra One', cursive;
+      font-size: 20px;
+      color: var(--crimson);
+      margin-bottom: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8b6e4e;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 13px;
+      border: 1px solid #d4c4a8;
+      border-radius: 8px;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      background: #fff;
+      color: var(--text-main);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 10px;
+      font-size: 13px;
+      border: 1px solid #d4c4a8;
+      border-radius: 8px;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      background: #fff;
+      color: var(--text-main);
+    }
+
+    .form-select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn-submit {
+      flex: 1;
+      background: linear-gradient(135deg, var(--success), #1e5a2a);
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.96);
+    }
+
+    .btn-cancel {
+      flex: 1;
+      background: #e0d5c7;
+      color: var(--text-main);
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .btn-cancel:active {
+      transform: scale(0.96);
+    }
+
+    .success-message {
+      background: #d4edda;
+      border: 1px solid #2d7a3e;
+      color: var(--success);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-main);
+      background: none;
+      border: none;
+    }
+
+    .footer-blessing {
+      margin-top: 16px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #5d4634;
+      font-style: italic;
+    }
+
+    .closing-slogan {
+      font-family: 'Yatra One', cursive;
+      font-size: 16px;
+      color: var(--crimson);
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Copy notification */
+    .copy-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--success);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 3000;
+    }
+
+    .copy-notification.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-frame">
+    
+    <!-- 1. INTERACTIVE DOOR OVERLAY (Tap to reveal) -->
+    <div class="doors-overlay" id="doorsOverlay" onclick="openInvitation()">
+      <div class="door door-left"></div>
+      <div class="door door-right"></div>
+      <div class="seal-container">
+        <div class="seal-button">
+          <!-- Modak / Kalash Icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#754c00">
+            <path d="M12 2C9.5 6 7 9.5 7 14c0 3.3 2.2 6 5 6s5-2.7 5-6c0-4.5-2.5-8-5-12zm0 18c-1.7 0-3-1.8-3-4 0-2.8 1.5-5.6 3-8.3 1.5 2.7 3 5.5 3 8.3 0 2.2-1.3 4-3 4z"/>
+          </svg>
+          <span class="seal-text">उघडा</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. INVITATION CARD CONTENT -->
+    <div class="invitation-body">
+      <!-- Decorative Borders -->
+      <div class="border-filigree top-left"></div>
+      <div class="border-filigree top-right"></div>
+      <div class="border-filigree bottom-left"></div>
+      <div class="border-filigree bottom-right"></div>
+
+      <!-- Headers -->
+      <div class="header-shloka">॥ श्री गणेशाय नमः ॥</div>
+      <div class="header-shloka" style="margin-bottom: 6px;">॥ श्री सत्यनारायण प्रसन्न ॥</div>
+      <div class="sub-shloka">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</div>
+
+      <!-- Golden Ganesha Vector -->
+      <div class="ganesha-hero">
+        <svg viewBox="0 0 100 100" fill="#d4af37">
+          <path d="M50 8C40 8 32 15 32 25C32 30 35 34 38 37C34 40 30 46 30 54C30 65 39 74 50 74C61 74 70 65 70 54C70 46 66 40 62 37C65 34 68 30 68 25C68 15 60 8 50 8ZM50 14C56 14 62 19 62 25C62 30 58 35 52 35C46 35 42 30 42 25C42 19 46 14 50 14ZM48 40C49 40 49.5 40 50 40C51 40 52 40.5 53 41C57 43 59 47 60 52C61 58 58 63 54 65C52 66 49 67 47 67C43 67 40 64 40 60C40 56 42 53 45 52L46 56C45 56 44 58 44 60C44 61 45 63 47 63C49 63 51 62 52 60C54 57 53 52 50 49C48 47 46 45 46 43C46 41.5 47 40 48 40Z"/>
+          <circle cx="50" cy="20" r="3" fill="#8b181b"/>
+          <path d="M43 78C35 78 28 83 28 89H72C72 83 65 78 57 78Z" fill="#996515"/>
+        </svg>
+      </div>
+
+      <div class="main-title">बाप्पाचे आगमन</div>
+      <div class="pujan-subtitle">श्री गणेश व सत्यनारायण महापूजा</div>
+
+      <!-- Host Family -->
+      <div class="host-card">
+        <div class="host-label">।। निमंत्रक ।।</div>
+        <div class="host-name">श्री. संदीप बाबाजी हुलावळे आणि परिवार</div>
+      </div>
+
+      <!-- Event Schedule -->
+      <div class="section-heading">आयोजन व कार्यक्रमाची रूपरेषा</div>
+      <br />
+      <div class="date-badge">🗓️ गुरुवार, १७ सप्टेंबर २०२६</div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-slot">⏰ 5:30 p.m.</div>
+          <div class="event-slot">श्री सत्यनारायण महापूजा</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-slot">⏰ सायं. ७:३०</div>
+          <div class="event-slot">संध्याकाळची आरती</div>
+        </div>
+      </div>
+
+      <!-- Venue & Google Maps -->
+      <div class="venue-box">
+        <div class="venue-title">📍 पूजेचे ठिकाण (Venue)</div>
+        <div class="venue-address">
+          <strong>फ्लॅट क्र. B ३/८०६, मिलेनियम टॉवर</strong><br>
+          (Millennium Tower), सेक्टर ९, सानपाडा, नवी मुंबई.
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-maps" onclick="openMaps()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+          </svg>
+          Google Maps वर मार्ग पहा
+        </button>
+        <button class="btn btn-rsvp" onclick="openRsvpModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+          </svg>
+          RSVP भाग घ्या
+        </button>
+        <button class="btn btn-contact" onclick="openContact()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 10.5V7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+          </svg>
+          संपर्क माहिती
+        </button>
+      </div>
+
+      <!-- Share Section -->
+      <div class="share-section">
+        <div class="share-label">📤 शेअर करा</div>
+        <div class="share-buttons">
+          <button class="share-btn whatsapp" onclick="shareWhatsApp()" title="WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.867 1.216l-.348.196-.36-.054c-1.186-.164-2.292-.38-3.22.758-.601.712-.547 1.554-.411 2.041.079.243.215.585.359.991.338.881.63 1.632.63 1.632-.011.572-.182 1.585-.694 2.637C2.868 16.996 3.989 20.069 8.339 21.55c1.487.47 2.992.434 4.11.147 1.024-.27 1.899-.856 2.197-1.426.188-.393.261-.804.276-1.195.023-.68-.212-1.222-.566-1.586-.163-.162-.37-.297-.596-.392l-.548-.261c-.281-.133-.554-.268-.787-.434-.232-.167-.435-.356-.605-.558-.171-.203-.311-.434-.407-.674-.096-.24-.16-.497-.168-.759-.013-.669.165-1.29.508-1.799.342-.508.822-.858 1.355-.992.534-.134 1.102-.081 1.573.157.235.119.447.296.627.527.18.23.326.497.432.784.09.246.156.509.176.781.02.271-.007.539-.063.792.308-.076.601-.223.857-.427.256-.203.473-.465.637-.757.165-.292.277-.609.324-.93.048-.321.024-.644-.089-.955-.112-.31-.303-.593-.552-.82"/>
+            </svg>
+          </button>
+          <button class="share-btn telegram" onclick="shareTelegram()" title="Telegram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.02-.14-.07-.2-.09-.06-.22-.04-.31-.02-.13.02-2.28 1.45-6.44 4.27-.61.42-1.16.62-1.66.61-.55-.01-1.6-.31-2.38-.57-.96-.3-1.73-.46-1.66-.97.04-.32.49-.65 1.33-.98 5.19-2.26 8.66-3.75 10.35-4.57.98-.52 1.87-.89 2.9-.77.97.1 1.9.64 2.22 1.55z"/>
+            </svg>
+          </button>
+          <button class="share-btn facebook" onclick="shareFacebook()" title="Facebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.7 10h-2.5v7h-3v-7H9v-2.5h1.2V9c0-1.02.23-2.6 2.54-2.6h1.98v2.5h-1.44c-.24 0-.28.09-.28.25V9.5h1.72L15.7 12z"/>
+            </svg>
+          </button>
+          <button class="share-btn copy" onclick="copyLink()" title="Copy Link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Heartfelt Blessing & Closing -->
+      <div class="footer-blessing">
+        "आपली उपस्थिती आणि स्नेह आमच्यासाठी आशीर्वादासारखा आहे. सपरिवार उपस्थित राहून दर्शनाचा व प्रसादाचा लाभ घ्यावा."
+      </div>
+      <div class="closing-slogan">॥ गणपती बाप्पा मोरया ॥</div>
+
+    </div>
+  </div>
+
+  <!-- RSVP Modal -->
+  <div id="rsvpModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeRsvpModal()">&times;</button>
+      <h2 class="modal-title">कार्यक्रमाचे RSVP</h2>
+      <div class="success-message" id="successMessage">✓ आपल्या प्रतिक्रिया साठी धन्यवाद!</div>
+      <form id="rsvpForm">
+        <div class="form-group">
+          <label class="form-label">नाव *</label>
+          <input type="text" class="form-input" id="rsvpName" required placeholder="आपले पूर्ण नाव">
+        </div>
+        <div class="form-group">
+          <label class="form-label">फोन नंबर *</label>
+          <input type="tel" class="form-input" id="rsvpPhone" required placeholder="10 अंकी नंबर">
+        </div>
+        <div class="form-group">
+          <label class="form-label">आप येणार का? *</label>
+          <select class="form-select" id="rsvpStatus" required>
+            <option value="">निवडा</option>
+            <option value="yes">होय, मी येईन (Yes)</option>
+            <option value="no">नाही, मी येणार नाही (No)</option>
+            <option value="maybe">कदाचित येईन (Maybe)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">कुटुंबातील सदस्यांची संख्या *</label>
+          <input type="number" class="form-input" id="rsvpGuests" min="1" max="10" required placeholder="उदा. 2">
+        </div>
+        <div class="form-group">
+          <label class="form-label">विशेष टिप्पणी</label>
+          <input type="text" class="form-input" id="rsvpMessage" placeholder="कोणतीही विशेष माहिती (वैकल्पिक)">
+        </div>
+        <div class="modal-buttons">
+          <button type="submit" class="btn-submit">सबमिट करा</button>
+          <button type="button" class="btn-cancel" onclick="closeRsvpModal()">रद्द करा</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contact Info Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeContactModal()">&times;</button>
+      <h2 class="modal-title">संपर्क माहिती</h2>
+      <div class="contact-box">
+        <div class="contact-item" onclick="callPhone('9876543210')">
+          <span class="contact-icon">☎️</span>
+          <div>
+            <strong>फोन</strong><br>
+            <span style="color: var(--gold-dark);">+91 9876543210</span>
+          </div>
+        </div>
+        <div class="contact-item" onclick="sendWhatsAppDirect('919876543210')">
+          <span class="contact-icon">💬</span>
+          <div>
+            <strong>WhatsApp</strong><br>
+            <span style="color: var(--gold-dark);">+91 9876543210</span>
+          </div>
+        </div>
+        <div class="contact-item" onclick="sendEmail('sandeep@example.com')">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <strong>ई-मेल</strong><br>
+            <span style="color: var(--gold-dark);">sandeep@example.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copy Notification -->
+  <div class="copy-notification" id="copyNotification">✓ लिंक कॉपी झाली!</div>
+
+  <script>
+    function openInvitation() {
+      const overlay = document.getElementById('doorsOverlay');
+      overlay.classList.add('open');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+      }, 1500);
+    }
+
+    // RSVP Modal
+    function openRsvpModal() {
+      document.getElementById('rsvpModal').classList.add('show');
+    }
+
+    function closeRsvpModal() {
+      document.getElementById('rsvpModal').classList.remove('show');
+      document.getElementById('rsvpForm').reset();
+      document.getElementById('successMessage').classList.remove('show');
+    }
+
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('rsvpName').value;
+      const phone = document.getElementById('rsvpPhone').value;
+      const status = document.getElementById('rsvpStatus').value;
+      const guests = document.getElementById('rsvpGuests').value;
+      const message = document.getElementById('rsvpMessage').value;
+
+      console.log('RSVP Submission:', { name, phone, status, guests, message });
+
+      document.getElementById('successMessage').classList.add('show');
+      
+      setTimeout(() => {
+        closeRsvpModal();
+      }, 2000);
+    });
+
+    // Contact Modal
+    function openContact() {
+      document.getElementById('contactModal').classList.add('show');
+    }
+
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.remove('show');
+    }
+
+    function callPhone(phone) {
+      window.location.href = 'tel:' + phone;
+    }
+
+    function sendWhatsAppDirect(phone) {
+      window.location.href = 'https://wa.me/' + phone + '?text=नमस्कार! मी श्री गणेश व सत्यनारायण महापूजा कार्यक्रमाचे RSVP देण्यास इच्छुक आहे।';
+    }
+
+    function sendEmail(email) {
+      window.location.href = 'mailto:' + email + '?subject=श्री गणेश व सत्यनारायण महापूजा - RSVP';
+    }
+
+    // Maps
+    function openMaps() {
+      window.open('https://maps.google.com/?q=Millennium+Tower+Sector+9+Sanpada+Navi+Mumbai', '_blank');
+    }
+
+    // Share Functions
+    function shareWhatsApp() {
+      const text = 'श्री गणेश व सत्यनारायण महापूजा निमंत्रण 🙏\n\nदिनांक: गुरुवार, १७ सप्टेंबर २०२६\nवेळ: 5:30 p.m.\nठिकाण: Millennium Tower, सेक्टर ९, सानपाडा, नवी मुंबई\n\nश्री. संदीप बाबाजी हुलावळे आणि परिवार यांच्याकडून निमंत्रण!\n\n॥ गणपती बाप्पा मोरया ॥';
+      window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    function shareTelegram() {
+      const text = 'श्री गणेश व सत्यनारायण महापूजा निमंत्रण 🙏 गुरुवार, १७ सप्टेंबर २०२६ - 5:30 p.m. Millennium Tower, सानपाडा, नवी मुंबई ॥ गणपती बाप्पा मोरया ॥';
+      window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(text), '_blank');
+    }
+
+    function shareFacebook() {
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+    }
+
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const notification = document.getElementById('copyNotification');
+        notification.classList.add('show');
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 2000);
+      });
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+      const rsvpModal = document.getElementById('rsvpModal');
+      const contactModal = document.getElementById('contactModal');
+      if (event.target == rsvpModal) {
+        closeRsvpModal();
+      }
+      if (event.target == contactModal) {
+        closeContactModal();
+      }
+    }
+  </script>
+</body>
+</html>
